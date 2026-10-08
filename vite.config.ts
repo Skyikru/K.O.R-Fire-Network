@@ -1,68 +1,92 @@
 import tailwindcss from '@tailwindcss/vite';
 import react from '@vitejs/plugin-react';
 import path from 'path';
-import {defineConfig} from 'vite';
-import {VitePWA} from 'vite-plugin-pwa';
+import { defineConfig } from 'vite';
+import { VitePWA } from 'vite-plugin-pwa';
 
 export default defineConfig(() => {
   return {
+    // GitHub Pages için repository yolu
+    base: '/K.O.R-Fire-Network/',
+
     plugins: [
       react(),
       tailwindcss(),
+
       VitePWA({
         registerType: 'autoUpdate',
-        includeAssets: ['icon.svg', 'apple-touch-icon.png'],
+
+        includeAssets: [
+          'icon.svg',
+          'apple-touch-icon.png',
+        ],
+
         manifest: {
-          id: '/',
+          id: '/K.O.R-Fire-Network/',
           name: 'Yaşam & Finans Asistanı',
           short_name: 'Yaşam&Finans',
-          description: 'Sıfır maliyetli, çevrimdışı ve gizlilik odaklı PWA gündelik yaşam ve kişisel bütçe asistanı.',
+
+          description:
+            'Sıfır maliyetli, çevrimdışı ve gizlilik odaklı PWA gündelik yaşam ve kişisel bütçe asistanı.',
+
           theme_color: '#090d16',
           background_color: '#090d16',
+
           display: 'standalone',
-          start_url: '/',
-          scope: '/',
+
+          start_url: '/K.O.R-Fire-Network/',
+          scope: '/K.O.R-Fire-Network/',
+
           icons: [
             {
-              src: '/pwa-192x192.png',
+              src: '/K.O.R-Fire-Network/pwa-192x192.png',
               sizes: '192x192',
               type: 'image/png',
               purpose: 'any',
             },
             {
-              src: '/pwa-512x512.png',
+              src: '/K.O.R-Fire-Network/pwa-512x512.png',
               sizes: '512x512',
               type: 'image/png',
               purpose: 'any',
             },
             {
-              src: '/pwa-maskable-512x512.png',
+              src: '/K.O.R-Fire-Network/pwa-maskable-512x512.png',
               sizes: '512x512',
               type: 'image/png',
               purpose: 'maskable',
             },
           ],
         },
+
         workbox: {
-          globPatterns: ['**/*.{js,css,html,ico,png,svg,woff,woff2}'],
+          globPatterns: [
+            '**/*.{js,css,html,ico,png,svg,woff,woff2}',
+          ],
         },
+
         devOptions: {
           enabled: true,
           type: 'module',
         },
       }),
     ],
+
     resolve: {
       alias: {
         '@': path.resolve(__dirname, '.'),
       },
     },
+
     server: {
-      // HMR is disabled in AI Studio via DISABLE_HMR env var.
-      // Do not modify—file watching is disabled to prevent flickering during agent edits.
+      // Gemini AI Studio için HMR ayarı
       hmr: process.env.DISABLE_HMR !== 'true',
-      // Disable file watching when DISABLE_HMR is true to save CPU during agent edits.
-      watch: process.env.DISABLE_HMR === 'true' ? null : {},
+
+      // Agent düzenlemeleri sırasında dosya izlemeyi kapat
+      watch:
+        process.env.DISABLE_HMR === 'true'
+          ? null
+          : {},
     },
   };
 });
