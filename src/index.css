@@ -1,0 +1,19 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@layer base {
+  html, body {
+    background-color: #F8FAFC;
+    color: #1E293B;
+  }
+  html.dark, html.dark body {
+    background-color: #0A0F1D;
+    color: #F1F5F9;
+  }
+  body {
+    transition: background-color 0.15s ease, color 0.15s ease;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}

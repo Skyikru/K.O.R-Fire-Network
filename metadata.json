@@ -1,0 +1,6 @@
+{
+  "name": "Yaşam & Finans Asistanı",
+  "description": "Sıfır maliyetli, çevrimdışı ve gizlilik odaklı PWA gündelik yaşam ve kişisel bütçe asistanı.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

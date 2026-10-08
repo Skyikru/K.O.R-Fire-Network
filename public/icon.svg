@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f172a"/>
+      <stop offset="100%" stop-color="#020617"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#10b981"/>
+      <stop offset="100%" stop-color="#06b6d4"/>
+    </linearGradient>
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="16" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
+  </defs>
+  <!-- Background with squircle safe padding -->
+  <rect width="512" height="512" rx="112" fill="url(#bg)"/>
+  <rect x="24" y="24" width="464" height="464" rx="96" fill="none" stroke="#1e293b" stroke-width="6"/>
+
+  <!-- Icon Graphic: Minimalist Wallet / Card & Checkmark -->
+  <g transform="translate(100, 100)" filter="url(#glow)">
+    <!-- Shield / Balance Base -->
+    <path d="M40 80 C40 40 70 20 156 20 C242 20 272 40 272 80 L272 170 C272 230 200 280 156 292 C112 280 40 230 40 170 Z" fill="none" stroke="url(#accent)" stroke-width="20" stroke-linejoin="round" stroke-linecap="round"/>
+    <!-- Central Checkmark / Growth Symbol -->
+    <path d="M100 150 L140 190 L215 105" fill="none" stroke="#ffffff" stroke-width="22" stroke-linecap="round" stroke-linejoin="round"/>
+    <!-- Coin / Balance Dot -->
+    <circle cx="156" cy="65" r="14" fill="url(#accent)"/>
+  </g>
+</svg>
